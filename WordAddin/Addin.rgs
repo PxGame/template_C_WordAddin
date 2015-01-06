@@ -1,0 +1,52 @@
+HKCR
+{
+	Word.Addin.1 = s 'Addin Class'
+	{
+		CLSID = s '{A8D63D34-DDC3-4E67-B17C-2886D58E375D}'
+	}
+	Word.Addin = s 'Addin Class'
+	{		
+		CurVer = s 'Word.Addin.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A8D63D34-DDC3-4E67-B17C-2886D58E375D} = s 'Addin Class'
+		{
+			ProgID = s 'Word.Addin.1'
+			VersionIndependentProgID = s 'Word.Addin'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{D5CFA7A4-651E-4FD6-AA26-5E3C4CDA354B}'
+			Version = s '1.0'
+		}
+	}
+}
+
+HKCU
+{
+	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Office
+			{
+				NoRemove Word
+				{
+					NoRemove Addins
+					{
+						ForceRemove 'Word.Addin'
+						{
+						　	val FriendlyName = s 'BaiYi Word Addin'
+　　　　　　　				val Description = s 'BaiYi Word Addin'
+　　　　　　　				val LoadBehavior = d '00000003'
+　　　　　　　				val CommandLineSafe = d '00000001'
+						}
+					}
+				}
+			}
+		}
+	}
+}

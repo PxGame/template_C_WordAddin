@@ -1,0 +1,34 @@
+// WordAddin.idl : WordAddin 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(WordAddin.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(270EF782-8470-4914-ACD6-D7917E3C9DB3),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IAddin : IDispatch{
+};
+[
+	uuid(D5CFA7A4-651E-4FD6-AA26-5E3C4CDA354B),
+	version(1.0),
+]
+library WordAddinLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(A8D63D34-DDC3-4E67-B17C-2886D58E375D)		
+	]
+	coclass Addin
+	{
+		[default] interface IAddin;
+	};
+};
+
